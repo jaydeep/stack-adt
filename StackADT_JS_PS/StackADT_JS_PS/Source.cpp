@@ -16,6 +16,11 @@ using namespace std;
 
 int main()
 {
-	
+	//Demo of Node class
+	Node<string> *nodePtr;
+	nodePtr = new Node<string>("test");
+	cout << nodePtr->getItem() << endl << nodePtr->getNext();
+
+	delete nodePtr;
 	return 0;
 }
