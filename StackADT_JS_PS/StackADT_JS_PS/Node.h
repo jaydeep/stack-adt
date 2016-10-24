@@ -1,8 +1,8 @@
 #ifndef NODE_H
 #define NODE_H
 
-//implementation is in .h file as opposed to separate .cpp file to avoid linker error
-//refer to http://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
+//implementation is in .h file as opposed to separate .cpp file to avoid linker error due to use of templates
+//refer to https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl
 
 template <class T>
 class Node
