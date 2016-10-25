@@ -9,7 +9,7 @@ class Node
 {
 protected:
 	T item;			//data item
-	Node<T> *next;	//pointer to next node
+	Node<T> *next;	//pointer to next node (if headNode, pointer to head)
 
 public:
 	//Constructors
@@ -17,11 +17,13 @@ public:
 	{
 		next = nullptr;
 	}
+
 	Node(const T &localItem)
 	{
 		item = localItem;
 		next = nullptr;
 	}
+
 	Node(const T &localItem, Node<T> *nextNodePointer)
 	{
 		item = localItem;
