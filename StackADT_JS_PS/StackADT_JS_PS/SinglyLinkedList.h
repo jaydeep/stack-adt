@@ -2,6 +2,7 @@
 #define SINGLY_LINKED_LIST_H
 
 #include "Node.h"
+#include "HeadNode.h"
 
 //implementation is in .h file as opposed to separate .cpp file to avoid linker error due to use of templates
 //refer to https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl
@@ -10,13 +11,10 @@
 template <class T>
 class SinglyLinkedList
 {
-private:
-	Node<T> *headPointer;	//pointer to first node in chain
-	Node<T> *tailPointer;	//pointer to last node in chain
+protected:
+	HeadNode<T> headNode;
 
-	int itemCount;					//current count of list items
-
-	//Locates a specified node in a linked list
+	//Locates a specified node in a linked list, for internal use only
 	//@pre					position is the number of the desired node;
 	//						position >= 1 and position <= itemCount.
 	//@post					the node is found and a pointer to it is returned.
@@ -25,7 +23,7 @@ private:
 	Node<T> *getNodeAt(int position) const
 	{
 		//Counting from the beginning of the chain
-		Node<T> *currentPointer = headPointer;
+		Node<T> *currentPointer = headNode.getNext();
 		for (int i = 1; i < position; i++)
 		{
 			currentPointer = currentPointer->getNext();
@@ -37,46 +35,45 @@ public:
 	//Constructor
 	SinglyLinkedList()
 	{
-		headPointer = nullptr;
-		tailPointer = nullptr;
-		itemCount = 0;
+		headNode.setNext(nullptr);
+		headNode.setLast(nullptr);
+		headNode.setItemCount(0);
 	}
 
 	//Copy Constructor
 	SinglyLinkedList(const SinglyLinkedList<T>& aList)
 	{
-		itemCount = aList.itemCount;
-
 		//pointer to node in original chain
-		Node<T>* originalChainPointer = aList.headPointer;
-		
+		Node<T>* originalChainPointer = aList.headNode.getNext();
+
+		//item count
+		headNode.setItemCount(aList.headNode.getItemCount());
+
 		//original chain is empty
 		if (originalChainPointer == nullptr)
 		{
-			headPointer = nullptr;
+			//nothing
 		}
 
-		//original chain is not empty
 		else
 		{
-			//copying first node
-			headPointer = new Node<T>();
-			headPointer->setItem(originalChainPointer->getItem());
+			//copy first node
+			headNode.setNext(new Node<T>());
+			this->setEntry(1, originalChainPointer->getItem());
 
-			//pointer for first node in new chain
-			Node<T>* newChainPointer = headPointer;
+			//copy remaining nodes
+			Node<T>* newChainPointer = headNode.getNext();	//last-node pointer
 
-			//copying remaining nodes
-			for (int i = 1; i < itemCount; i++)
+			for (int i = 1; i < headNode.getItemCount(); i++)
 			{
 				//advancing original chain pointer
 				originalChainPointer = originalChainPointer->getNext();
-				
+
 				//getting next item from original chain
 				T nextItem = originalChainPointer->getItem();
 
 				//creating a new node to contain the next item
-				Node<T> *newNodePointer = new Node<T>(nextItem);
+				Node<T>* newNodePointer = new Node<T>(nextItem);
 
 				//linking new node to end of new chain
 				newChainPointer->setNext(newNodePointer);
@@ -87,10 +84,11 @@ public:
 
 			//flagging end of chain
 			newChainPointer->setNext(nullptr);
-		}
 
-		//setting tail pointer
-		tailPointer = aList.tailPointer;
+			//setting tail pointer
+			headNode.setLast(newChainPointer);
+
+		}
 	}
 
 	//Destructor
@@ -103,20 +101,20 @@ public:
 	//Checks if list is empty
 	bool isEmpty() const
 	{
-		return itemCount == 0;
+		return (headNode.getItemCount() == 0);
 	}
 
 	//Gets the length of the list
 	int getLength() const
 	{
-		return itemCount;
+		return (headNode.getItemCount());
 	}
 
 	//Inserts a new entry
 	bool insert(int newPosition, const T& newEntry)
 	{
 		//Variable to check if position to add to is within bounds
-		bool ableToInsert = (newPosition >= 1) && (newPosition <= itemCount + 1);
+		bool ableToInsert = (newPosition >= 1) && (newPosition <= (headNode.getItemCount()) + 1);
 
 		if (ableToInsert)
 		{
@@ -126,9 +124,9 @@ public:
 			//Adding new node to beginning of chain
 			if (newPosition == 1)
 			{
-				newNodePointer->setNext(headPointer);
-				headPointer = newNodePointer;
-				tailPointer = getNodeAt(itemCount);
+				newNodePointer->setNext(headNode.getNext());
+				headNode.setNext(newNodePointer);
+				headNode.setLast(getNodeAt(headNode.getItemCount()));
 			}
 
 			//Adding new node elsewhere in chain
@@ -140,16 +138,28 @@ public:
 				//Inserting new node after previousPointer's node
 				newNodePointer->setNext(previousPointer->getNext());
 				previousPointer->setNext(newNodePointer);
-
-				//Setting tail pointer
-				tailPointer = getNodeAt(itemCount+1);
 			}
 
 			//Increment count of entries
-			itemCount++;
+			headNode.setItemCount(headNode.getItemCount() + 1);
+
+			//Setting tail pointer
+			headNode.setLast(getNodeAt(headNode.getItemCount()));
 		}
 
 		return ableToInsert;
+	}
+
+	//Inserts a new entry at the beginning
+	bool insertFirst(const T& newEntry)
+	{
+		return insert(1, newEntry);
+	}
+
+	//Inserts a new entry at the end
+	bool insertLast(const T& newEntry)
+	{
+		return insert(headNode.getItemCount() + 1, newEntry);
 	}
 
 	//Removes an entry
@@ -157,9 +167,9 @@ public:
 	{
 		//Temporary pointer for deallocation of allocated memory for removed nodes
 		Node<T>* currentPointer = nullptr;
-		
+
 		//Variable to check if position to remove is within bounds
-		bool ableToRemove = (position >= 1) && (position <= itemCount);
+		bool ableToRemove = (position >= 1) && (position <= headNode.getItemCount());
 
 		if (ableToRemove)
 		{
@@ -167,8 +177,8 @@ public:
 			if (position == 1)
 			{
 				//pointer to node to be removed must be saved in some temporary pointer in order to release memory allocated for removed node
-				currentPointer = headPointer;
-				headPointer = headPointer->getNext();
+				currentPointer = headNode.getNext();
+				headNode.setNext(getNodeAt(2));
 			}
 
 			//Removing node elsewhere in chain
@@ -190,12 +200,27 @@ public:
 			currentPointer = nullptr;
 
 			//Decrementing count of entries
-			itemCount--;
+			headNode.setItemCount(headNode.getItemCount() - 1);
 		}
-		
+
+		//setting tail pointer
+		headNode.setLast(getNodeAt(headNode.getItemCount()));
+
 		return ableToRemove;
 	}
-	
+
+	//Removes an entry at the beginning
+	bool removeFirst()
+	{
+		return remove(1);
+	}
+
+	//Removes an entry at the end
+	bool removeLast()
+	{
+		return remove(headNode.getItemCount());
+	}
+
 	//Clears the list
 	void clear()
 	{
@@ -209,8 +234,8 @@ public:
 	T getEntry(int position)
 	{
 		//Variable to check if position of entry to get is within bounds
-		bool ableToGet = (position >= 1) && (position <= itemCount);
-		
+		bool ableToGet = (position >= 1) && (position <= headNode.getItemCount());
+
 		if (ableToGet)
 		{
 			Node<T>* entryNodePointer = getNodeAt(position);
@@ -222,7 +247,7 @@ public:
 	void setEntry(int position, const T& newEntry)
 	{
 		//Variable to check if position of entry to set is within bounds
-		bool ableToSet = (position >= 1) && (position <= itemCount);
+		bool ableToSet = (position >= 1) && (position <= headNode.getItemCount());
 
 		if (ableToSet)
 		{
@@ -230,7 +255,6 @@ public:
 			entryNodePointer->setItem(newEntry);
 		}
 	}
-
 
 };
 
