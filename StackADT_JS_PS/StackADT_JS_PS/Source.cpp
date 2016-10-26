@@ -13,6 +13,7 @@ Lab 2 - Stack ADT
 #include "Node.h"
 #include "HeadNode.h"
 #include "SinglyLinkedList.h"
+#include "Stack.h"
 
 using namespace std;
 
@@ -25,7 +26,8 @@ int main()
 	cout << "Internal Testing Only - Not for Release\n\n";
 	demoNodeAndHeadNode();
 	demoSinglyLinkedList();
-	
+	demoStack();
+
 	cout << endl << "Press enter to exit.";
 	cin.get();
 	system("CLS");
@@ -162,4 +164,9 @@ void demoSinglyLinkedList()
 	delete listPtr, listPtr2;
 	listPtr = nullptr;
 	listPtr2 = nullptr;
+}
+
+void demoStack()
+{
+	//Demo of Stack Class
 }
