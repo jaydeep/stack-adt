@@ -16,10 +16,25 @@ Lab 2 - Stack ADT
 
 using namespace std;
 
+void demoNodeAndHeadNode();
+void demoSinglyLinkedList();
+
 int main()
 {
 	//Testing
 	cout << "Internal Testing Only - Not for Release\n\n";
+	demoNodeAndHeadNode();
+	demoSinglyLinkedList();
+	
+	cout << endl << "Press enter to exit.";
+	cin.get();
+	system("CLS");
+
+	return 0;
+}
+
+void demoNodeAndHeadNode()
+{
 	//Demo of Node class
 	Node<string> *nodePtr;
 	nodePtr = new Node<string>("test");
@@ -39,7 +54,10 @@ int main()
 
 	delete headNodePtr;
 	headNodePtr = nullptr;
+}
 
+void demoSinglyLinkedList()
+{
 	//Demo of SinglyLinkedList class
 	SinglyLinkedList<string> *listPtr;
 	//Demo of default constructor
@@ -48,7 +66,6 @@ int main()
 	cout << "listPtr isEmpty() " << listPtr->isEmpty() << endl;
 	//Demo of getLength()
 	cout << "listPtr getLength() " << listPtr->getLength() << endl;
-
 
 	//Demo of insert()
 	cout << "Adding the string \"test1\" at position 1 to listPtr" << endl;
@@ -119,13 +136,7 @@ int main()
 	cout << "listPtr isEmpty() " << listPtr->isEmpty() << endl;
 	cout << "listPtr getLength() " << listPtr->getLength() << endl;
 
-	cout << endl << "Press enter to exit.";
-	cin.get();
-	system("CLS");
-
 	delete listPtr, listPtr2;
 	listPtr = nullptr;
 	listPtr2 = nullptr;
-
-	return 0;
 }
