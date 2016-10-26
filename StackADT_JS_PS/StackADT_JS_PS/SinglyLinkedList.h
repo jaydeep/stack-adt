@@ -6,7 +6,6 @@
 
 //implementation is in .h file as opposed to separate .cpp file to avoid linker error due to use of templates
 //refer to https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl
-//to be implemented: exception handling (out of bounds behaviors)
 
 template <class T>
 class SinglyLinkedList
@@ -214,10 +213,10 @@ public:
 
 			//Decrementing count of entries
 			headNode.setItemCount(headNode.getItemCount() - 1);
-		}
 
-		//setting tail pointer
-		headNode.setLast(getNodeAt(headNode.getItemCount()));
+			//setting tail pointer
+			headNode.setLast(getNodeAt(headNode.getItemCount()));
+		}
 
 		return ableToRemove;
 	}
@@ -248,6 +247,7 @@ public:
 	//Gets an entry
 	//@param	position	position in list to get entry from
 	//@return				a "T" (templatized) data item
+	//@throw	outOfBounds	thrown if position is out of bounds or list is empty
 	T getEntry(int position)
 	{
 		//Variable to check if position of entry to get is within bounds
@@ -258,11 +258,17 @@ public:
 			Node<T>* entryNodePointer = getNodeAt(position);
 			return entryNodePointer->getItem();
 		}
+		else
+		{
+			string outOfBounds = "getEntry() called with invalid position or empty list.\n";
+			throw outOfBounds;
+		}
 	}
 
 	//Sets an entry
 	//@param	position	position in list to set entry
 	//@param	newEntry	entry to add
+	//@throw	outOfBounds	thrown if position is out of bounds or list is empty
 	void setEntry(int position, const T& newEntry)
 	{
 		//Variable to check if position of entry to set is within bounds
@@ -272,6 +278,11 @@ public:
 		{
 			Node<T>* entryNodePointer = getNodeAt(position);
 			entryNodePointer->setItem(newEntry);
+		}
+		else
+		{
+			string outOfBounds = "setEntry() called with invalid position or empty list.\n";
+			throw outOfBounds;
 		}
 	}
 

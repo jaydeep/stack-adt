@@ -96,6 +96,29 @@ void demoSinglyLinkedList()
 	cout << "listPtr2 getEntry(1) " << listPtr2->getEntry(1) << endl;
 	cout << "listPtr2 getEntry(2) " << listPtr2->getEntry(2) << endl;
 	cout << "listPtr2 getEntry(3) " << listPtr2->getEntry(3) << endl << endl;
+	
+	//demo of getEntry() exception handling
+	cout << "Exception Handling Test\nTrying to access listPtr2 getEntry(4)\n";
+	try
+	{
+		cout << "listPtr2 getEntry(4) " << listPtr2->getEntry(4) << endl; 
+	}
+	catch (string outOfBounds)
+	{
+		cout << outOfBounds << endl;
+	}
+
+	//demo of setEntry() exception handling
+	cout << "Exception Handling Test\nTrying to access listPtr2 setEntry(4) and initializing with the entry \"test4\"\n";
+	cout << "listPtr2 setEntry(4, \"test4\") \n";
+	try
+	{
+		listPtr2->setEntry(4, "test4");
+	}
+	catch (string outOfBounds)
+	{
+		cout << outOfBounds << endl;
+	}
 
 	////Demo of setEntry()
 	cout << "Changing first item in listPtr to \"newtest1\"" << endl;
