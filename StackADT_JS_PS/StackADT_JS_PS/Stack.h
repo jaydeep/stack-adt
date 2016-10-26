@@ -14,7 +14,7 @@ public:
 	//Creates an empty stack
 	Stack()
 	{
-
+		SinglyLinkedList::SinglyLinkedList() //call constructor of base class
 	}
 
 	//Copy Constructor
@@ -50,7 +50,7 @@ public:
 	//@return	bool			true if empty, false if not
 	bool isEmpty()
 	{
-
+		return LinkedList::isEmpty()
 	}
 
 	//Prints stack from top to bottom to standard IO
