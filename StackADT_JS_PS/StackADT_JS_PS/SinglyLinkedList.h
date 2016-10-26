@@ -16,10 +16,10 @@ protected:
 
 	//Locates a specified node in a linked list, for internal use only
 	//@pre					position is the number of the desired node;
-	//						position >= 1 and position <= itemCount.
-	//@post					the node is found and a pointer to it is returned.
-	//@param	position	The number of the node to locate.
-	//@return				a pointer to the node at the given position.
+	//						position >= 1 and position <= itemCount
+	//@post					the node is found and a pointer to it is returned
+	//@param	position	the number of the node to locate
+	//@return				a pointer to the node at the given position
 	Node<T> *getNodeAt(int position) const
 	{
 		//Counting from the beginning of the chain
@@ -33,6 +33,7 @@ protected:
 
 public:
 	//Constructor
+	//creates an empty list
 	SinglyLinkedList()
 	{
 		headNode.setNext(nullptr);
@@ -41,6 +42,7 @@ public:
 	}
 
 	//Copy Constructor
+	//copies one list into another
 	SinglyLinkedList(const SinglyLinkedList<T>& aList)
 	{
 		//pointer to node in original chain
@@ -99,18 +101,23 @@ public:
 
 	//Methods
 	//Checks if list is empty
+	//@return	true if list is empty
 	bool isEmpty() const
 	{
 		return (headNode.getItemCount() == 0);
 	}
 
 	//Gets the length of the list
+	//@return	integer value for number of entries in the list
 	int getLength() const
 	{
 		return (headNode.getItemCount());
 	}
 
 	//Inserts a new entry
+	//@param	newPosition		position to add new entry to
+	//@param	newEntry		new entry
+	//@return					true if newPosition is valid and newEntry successfully added
 	bool insert(int newPosition, const T& newEntry)
 	{
 		//Variable to check if position to add to is within bounds
@@ -151,18 +158,24 @@ public:
 	}
 
 	//Inserts a new entry at the beginning
+	//@param	newEntry	new entry to be added
+	//@return	true if entry successfully added
 	bool insertFirst(const T& newEntry)
 	{
 		return insert(1, newEntry);
 	}
 
 	//Inserts a new entry at the end
+	//@param	newEntry	new entry to be added
+	//@return	true if entry successfully added
 	bool insertLast(const T& newEntry)
 	{
 		return insert(headNode.getItemCount() + 1, newEntry);
 	}
 
 	//Removes an entry
+	//@param	position	position of entry to be deleted
+	//@return	true if entry successfully deleted
 	bool remove(int position)
 	{
 		//Temporary pointer for deallocation of allocated memory for removed nodes
@@ -210,12 +223,14 @@ public:
 	}
 
 	//Removes an entry at the beginning
+	//@return	true if entry successfully deleted
 	bool removeFirst()
 	{
 		return remove(1);
 	}
 
 	//Removes an entry at the end
+	//@return	true if entry successfully deleted
 	bool removeLast()
 	{
 		return remove(headNode.getItemCount());
@@ -231,6 +246,8 @@ public:
 	}
 
 	//Gets an entry
+	//@param	position	position in list to get entry from
+	//@return				a "T" (templatized) data item
 	T getEntry(int position)
 	{
 		//Variable to check if position of entry to get is within bounds
@@ -244,6 +261,8 @@ public:
 	}
 
 	//Sets an entry
+	//@param	position	position in list to set entry
+	//@param	newEntry	entry to add
 	void setEntry(int position, const T& newEntry)
 	{
 		//Variable to check if position of entry to set is within bounds
