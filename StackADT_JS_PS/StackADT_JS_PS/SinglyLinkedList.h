@@ -38,7 +38,6 @@ public:
 		headNode.setNext(nullptr);
 		headNode.setLast(nullptr);
 		headNode.setItemCount(0);
-		cout << "testing call of SLL base constructor"
 	}
 
 	//Copy Constructor

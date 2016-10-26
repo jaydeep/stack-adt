@@ -19,13 +19,14 @@ using namespace std;
 
 void demoNodeAndHeadNode();
 void demoSinglyLinkedList();
+void demoStack();
 
 int main()
 {
 	//Testing
 	cout << "Internal Testing Only - Not for Release\n\n";
-	demoNodeAndHeadNode();
-	demoSinglyLinkedList();
+	//demoNodeAndHeadNode();
+	//demoSinglyLinkedList();
 	demoStack();
 
 	cout << endl << "Press enter to exit.";
@@ -169,4 +170,19 @@ void demoSinglyLinkedList()
 void demoStack()
 {
 	//Demo of Stack Class
+	Stack<string> *stackPointer;
+
+	stackPointer = new Stack<string>();
+	
+
+	//Demo Behaviors
+	//	Demo isEmpty
+	cout << "stackPointer isEmpty() [1 indicates true. 0 false] " << stackPointer->isEmpty() << endl;
+	//	Demo push
+	//	Demo pop
+	//	Demo printFirst
+	//	Demo printStack
+	//	Demo getCount
+	//	Demo getFirst
+	//	Demo getLast
 }
