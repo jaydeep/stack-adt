@@ -18,13 +18,15 @@ using namespace std;
 
 void demoNodeAndHeadNode();
 void demoSinglyLinkedList();
+void demoStack();
 
 int main()
 {
 	//Testing
 	cout << "Internal Testing Only - Not for Release\n\n";
-	demoNodeAndHeadNode();
-	demoSinglyLinkedList();
+	//demoNodeAndHeadNode();
+	//demoSinglyLinkedList();
+	demoStack();
 	
 	cout << endl << "Press enter to exit.";
 	cin.get();
@@ -162,4 +164,48 @@ void demoSinglyLinkedList()
 	delete listPtr, listPtr2;
 	listPtr = nullptr;
 	listPtr2 = nullptr;
+}
+
+void demoStack()
+{
+	//Demo of Stack Class
+	Stack<string> *stackStringPointer;
+
+	stackStringPointer = new Stack<string>();
+	
+
+	//Demo Behaviors
+	//	Demo isEmpty
+	cout << "stackPointer isEmpty() [1 indicates true. 0 false] " << stackStringPointer->isEmpty() << endl;
+	cout << stackStringPointer->getItemCount() << "is the total num of items" << endl;
+	//	Demo push
+	cout << "will now demo push";
+	stackStringPointer->push("a");
+	stackStringPointer->push("b");
+	stackStringPointer->push("c");
+	stackStringPointer->push("d");
+	cout << "printing stack" << endl;
+	stackStringPointer->printStack();
+	//	Demo pop
+	cout << "will now demo pop";
+	stackStringPointer->pop();
+	stackStringPointer->pop();
+	//	Demo printFirst
+	cout << "will now demo print first";
+	stackStringPointer->printFirst();
+	//	Demo printStack
+	cout << "will now demo print stack again";
+	stackStringPointer->printStack();
+	//	Demo getCount
+	cout << "current count"
+	stackStringPointer->getCount();
+	//	Demo getFirst
+	cout << "get first";
+	stackStringPointer->getFirst();
+	//	Demo getLast
+	cout << "get last";
+	stackStringPointer->getLast();
+	~stackStringPointer();
+	cout << "ta da";
+	
 }
