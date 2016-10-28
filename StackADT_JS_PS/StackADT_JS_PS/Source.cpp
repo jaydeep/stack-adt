@@ -12,6 +12,7 @@ Lab 2 - Stack ADT
 #include <string>
 #include "Node.h"
 #include "HeadNode.h"
+#incldue "Stack.h"
 #include "SinglyLinkedList.h"
 
 using namespace std;
@@ -197,7 +198,7 @@ void demoStack()
 	cout << "will now demo print stack again";
 	stackStringPointer->printStack();
 	//	Demo getCount
-	cout << "current count"
+	cout << "current count";
 	stackStringPointer->getCount();
 	//	Demo getFirst
 	cout << "get first";

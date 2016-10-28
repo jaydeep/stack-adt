@@ -70,6 +70,7 @@
     <ClInclude Include="HeadNode.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="SinglyLinkedList.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
