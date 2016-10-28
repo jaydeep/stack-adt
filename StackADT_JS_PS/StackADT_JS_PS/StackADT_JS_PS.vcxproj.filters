@@ -38,10 +38,10 @@
     <ClInclude Include="Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\Currency.h">
+    <ClInclude Include="Currency.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\CurrencyTypes.h">
+    <ClInclude Include="CurrencyTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

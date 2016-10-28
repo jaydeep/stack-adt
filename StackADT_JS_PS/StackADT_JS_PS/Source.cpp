@@ -14,6 +14,8 @@ Lab 2 - Stack ADT
 #include "HeadNode.h"
 #include "Stack.h"
 #include "SinglyLinkedList.h"
+#include "Currency.h"
+#include "CurrencyTypes.h"
 
 using namespace std;
 

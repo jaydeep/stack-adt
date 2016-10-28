@@ -69,8 +69,8 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\Currency.h" />
-    <ClInclude Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\CurrencyTypes.h" />
+    <ClInclude Include="Currency.h" />
+    <ClInclude Include="CurrencyTypes.h" />
     <ClInclude Include="HeadNode.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="SinglyLinkedList.h" />
