@@ -21,29 +21,31 @@ public:
 	//Copies one stack onto another
 	Stack(const Stack<T>& aStack)
 	{
-
+		SinglyLinkedList::SinglyLinkedList(aStack)
+		cout << "copied stack" << endl;
 	}
 
 	//Destructor
 	~Stack()
 	{
-		//TODO
+		SinglyLinkedList::~SinglyLinkedList
+		cout << "destroyed stack" << endl;
 	}
 
 	//Behaviors
 	//Add a new element to stack.
 	//@param	newElement		new element to add
 	//@return	void			nothing to return
-	void push(const T& newElement)
+	bool push(const T& newElement)
 	{
-
+		return SinglyLinkedList::insert(newElement);	
 	}
 
 	//Pop the first element on stack
 	//@return returns the popped element
-	T& pop()
+	bool pop()
 	{
-
+		return SinglyLinkedList::removeFirst();
 	}
 
 	//Checks whether stack is empty
@@ -56,34 +58,30 @@ public:
 	//Prints stack from top to bottom to standard IO
 	void printStack()
 	{
-
+		for (int i = 1; i < getCount; i++;)
+		{
+			cout << getEntry(i);
+		}
 	}
 
 	//Prints first element of stack
 	void printFirst()
 	{
-
+		cout << getFirst << endl;
 	}
 
 	//Gets the total number of elements on stack
 	//@return	int		total number of elements on stack
 	int getCount()
 	{
-
-	}
-
-	//Gets the value of the first element on stack
-	//@return	T&		value of first element
-	T& getFirst()
-	{
-
+		return SinglyLinkedList::getLength();
 	}
 
 	//Gets value of last element on stack
 	//@return	T&		value of last element on stack
 	T& getLast()
 	{
-
+		return SinglyLinkedList::getEntry(headNode.getItemCount());
 	}
 
 };
