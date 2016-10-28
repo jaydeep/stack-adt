@@ -18,6 +18,12 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\Currency.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\CurrencyTypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -30,6 +36,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\Currency.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\CurrencyTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
