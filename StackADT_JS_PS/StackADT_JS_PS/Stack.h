@@ -35,14 +35,14 @@ public:
 	//Behaviors
 	//Add a new element to stack.
 	//@param	newElement		new element to add
-	//@return	void			nothing to return
+	//@return	bool			true if element is added
 	bool push(const T& newElement)
 	{
 		return SinglyLinkedList::insert(newElement);
 	}
 
 	//Pop the first element on stack
-	//@return returns the popped element
+	//@return true if element is successfully popped
 	bool pop()
 	{
 		return SinglyLinkedList::removeFirst();
