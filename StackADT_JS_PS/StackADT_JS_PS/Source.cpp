@@ -12,7 +12,7 @@ Lab 2 - Stack ADT
 #include <string>
 #include "Node.h"
 #include "HeadNode.h"
-#incldue "Stack.h"
+#include "Stack.h"
 #include "SinglyLinkedList.h"
 
 using namespace std;
@@ -178,7 +178,7 @@ void demoStack()
 	//Demo Behaviors
 	//	Demo isEmpty
 	cout << "stackPointer isEmpty() [1 indicates true. 0 false] " << stackStringPointer->isEmpty() << endl;
-	cout << stackStringPointer->getItemCount() << "is the total num of items" << endl;
+	cout << stackStringPointer->getCount() << "is the total num of items" << endl;
 	//	Demo push
 	cout << "will now demo push";
 	stackStringPointer->push("a");
@@ -206,7 +206,6 @@ void demoStack()
 	//	Demo getLast
 	cout << "get last";
 	stackStringPointer->getLast();
-	~stackStringPointer();
+	delete stackStringPointer;
 	cout << "ta da";
-	
 }

@@ -33,7 +33,7 @@ public:
 	//@return	bool			true if element is added
 	bool push(const T& newElement)
 	{
-		return SinglyLinkedList::insert(newElement);
+		return SinglyLinkedList::insertFirst(newElement);
 	}
 
 	//Pop the first element on stack
@@ -70,6 +70,11 @@ public:
 	int getCount()
 	{
 		return SinglyLinkedList::getLength();
+	}
+
+	T& getFirst()
+	{
+		return SinglyLinkedList::getEntry(1);
 	}
 
 	//Gets value of last element on stack
