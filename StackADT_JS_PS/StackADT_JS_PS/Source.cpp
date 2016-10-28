@@ -169,44 +169,73 @@ int main()
 //	listPtr2 = nullptr;
 //}
 
+
+//Demo of Stack Using String, Integer and Currency Types
 void demoStack()
 {
-	//Demo of Stack Class
+	//Demo of Stack Classes
 	Stack<string> *stackStringPointer;
+	Stack<int> *stackIntPointer;
+	Stack<Currency*> *stackCurrency;
 
+	stackIntPointer = new Stack<int>();
 	stackStringPointer = new Stack<string>();
-	
+	stackCurrency = new Stack<Currency*>();
 
 	//Demo Behaviors
 	//	Demo isEmpty
-	cout << "stackPointer isEmpty() [1 indicates true. 0 false] " << stackStringPointer->isEmpty() << endl;
+	cout << "stackstringPointer isEmpty() [1 indicates true. 0 false] " << stackStringPointer->isEmpty() << endl;
+	cout << "stackIntPointer isEmpty()" << stackIntPointer->isEmpty() << endl;
+	cout << "stackCurrency isEmpty()" << stackCurrency->isEmpty() << endl;
 	//	Demo push
 	cout << "will now demo push" << endl;
 	stackStringPointer->push("a");
 	stackStringPointer->push("b");
 	stackStringPointer->push("c");
 	stackStringPointer->push("d");
+	//
+	for (int i = 0; i < 5; i++)
+	{
+		stackCurrency->push(new USD(i, i));
+		stackIntPointer->push(1*i);
+		stackIntPointer->push(2*i);
+		stackIntPointer->push(3*i);
+		stackIntPointer->push(4*i);
+	}
 	cout << "printing stack" << endl;
 	stackStringPointer->printStack();
+	stackIntPointer->printStack();
+	stackCurrency->printStack();
 	//	Demo pop
 	cout << "will now demo pop" << endl;
 	stackStringPointer->pop();
 	stackStringPointer->pop();
+	stackIntPointer->pop();
+	stackIntPointer->pop(); 
+	stackIntPointer->pop();
+	stackCurrency->pop();
 	//	Demo printFirst
 	cout << "will now demo print first" << endl;
 	stackStringPointer->printFirst();
+	stackIntPointer->printFirst();
 	stackStringPointer->push("100");
 	//	Demo printStack
 	cout << "will now demo print stack again" << endl;
 	stackStringPointer->printStack();
+	stackIntPointer->printStack();
+	stackCurrency->printStack();
 	//	Demo getCount
-	cout << "current count" << stackStringPointer->getCount() << endl;
+	cout << "current count " << stackStringPointer->getCount() << endl;
 	//	Demo getFirst
-	cout << "get first" << stackStringPointer->getFirst() << endl;
+	cout << "get first " << stackStringPointer->getFirst() << endl;
 	//	Demo getLast
-	cout << "get last" << stackStringPointer->getLast() << endl;
+	cout << "get last " << stackStringPointer->getLast() << endl;
 
 	delete stackStringPointer;
+	delete stackIntPointer;
+	delete stackCurrency;
+	stackCurrency = nullptr;
+	stackIntPointer = nullptr;
 	stackStringPointer = nullptr;
 	cout << "ta da";
 }
