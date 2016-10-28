@@ -178,9 +178,8 @@ void demoStack()
 	//Demo Behaviors
 	//	Demo isEmpty
 	cout << "stackPointer isEmpty() [1 indicates true. 0 false] " << stackStringPointer->isEmpty() << endl;
-	cout << stackStringPointer->getCount() << "is the total num of items" << endl;
 	//	Demo push
-	cout << "will now demo push";
+	cout << "will now demo push" << endl;
 	stackStringPointer->push("a");
 	stackStringPointer->push("b");
 	stackStringPointer->push("c");
@@ -188,24 +187,24 @@ void demoStack()
 	cout << "printing stack" << endl;
 	stackStringPointer->printStack();
 	//	Demo pop
-	cout << "will now demo pop";
+	cout << "will now demo pop" << endl;
 	stackStringPointer->pop();
 	stackStringPointer->pop();
 	//	Demo printFirst
-	cout << "will now demo print first";
+	cout << "will now demo print first" << endl;
 	stackStringPointer->printFirst();
+	stackStringPointer->push("100");
 	//	Demo printStack
-	cout << "will now demo print stack again";
+	cout << "will now demo print stack again" << endl;
 	stackStringPointer->printStack();
 	//	Demo getCount
-	cout << "current count";
-	stackStringPointer->getCount();
+	cout << "current count" << stackStringPointer->getCount() << endl;
 	//	Demo getFirst
-	cout << "get first";
-	stackStringPointer->getFirst();
+	cout << "get first" << stackStringPointer->getFirst() << endl;
 	//	Demo getLast
-	cout << "get last";
-	stackStringPointer->getLast();
+	cout << "get last" << stackStringPointer->getLast() << endl;
+
 	delete stackStringPointer;
+	stackStringPointer = nullptr;
 	cout << "ta da";
 }

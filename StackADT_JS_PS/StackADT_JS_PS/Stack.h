@@ -53,16 +53,16 @@ public:
 	//Prints stack from top to bottom to standard IO
 	void printStack()
 	{
-		for (int i = 1; i < getCount; i++;)
+		for (int i = 1; i < getCount()+1; i++)
 		{
-			cout << getEntry(i);
+			cout << getEntry(i) << endl;
 		}
 	}
 
 	//Prints first element of stack
 	void printFirst()
 	{
-		cout << getFirst << endl;
+		cout << getFirst() << endl;
 	}
 
 	//Gets the total number of elements on stack
@@ -72,14 +72,14 @@ public:
 		return SinglyLinkedList::getLength();
 	}
 
-	T& getFirst()
+	T getFirst()
 	{
 		return SinglyLinkedList::getEntry(1);
 	}
 
 	//Gets value of last element on stack
 	//@return	T&		value of last element on stack
-	T& getLast()
+	T getLast()
 	{
 		return SinglyLinkedList::getEntry(headNode.getItemCount());
 	}
