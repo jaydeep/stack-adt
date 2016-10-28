@@ -21,16 +21,11 @@ public:
 	//Copies one stack onto another
 	Stack(const Stack<T>& aStack)
 	{
-		SinglyLinkedList::SinglyLinkedList(aStack)
-			cout << "copied stack" << endl;
+		SinglyLinkedList::SinglyLinkedList(aStack);
 	}
 
-	//Destructor
-	~Stack()
-	{
-		SinglyLinkedList::~SinglyLinkedList
-			cout << "destroyed stack" << endl;
-	}
+	//Destructor is not necessary because it will automatically be called in reverse
+	//chain of inheritance
 
 	//Behaviors
 	//Add a new element to stack.
