@@ -18,10 +18,10 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\Currency.cpp">
+    <ClCompile Include="CurrencyTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\CurrencyTypes.cpp">
+    <ClCompile Include="Currency.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

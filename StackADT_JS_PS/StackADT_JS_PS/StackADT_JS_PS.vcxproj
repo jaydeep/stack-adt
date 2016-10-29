@@ -64,8 +64,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\Currency.cpp" />
-    <ClCompile Include="..\..\..\..\..\Downloads\Lab 1 - Wallet - Patrick Silvestre\Lab 1\CurrencyTypes.cpp" />
+    <ClCompile Include="Currency.cpp" />
+    <ClCompile Include="CurrencyTypes.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

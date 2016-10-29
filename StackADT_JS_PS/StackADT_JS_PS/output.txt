@@ -1,0 +1,70 @@
+Internal Testing Only - Not for Release
+
+stackstringPointer isEmpty() [1 indicates true. 0 false] 1
+stackIntPointer isEmpty()1
+stackCurrency isEmpty()1
+will now demo push
+printing stack
+d
+c
+b
+a
+16
+12
+8
+4
+12
+9
+6
+3
+8
+6
+4
+2
+4
+3
+2
+1
+0
+0
+0
+0
+006CADA0
+006CAA60
+006CA720
+006CA3E0
+006CA0E8
+will now demo pop
+will now demo print first
+b
+4
+will now demo print stack again
+100
+b
+a
+4
+12
+9
+6
+3
+8
+6
+4
+2
+4
+3
+2
+1
+0
+0
+0
+0
+006CAA60
+006CA720
+006CA3E0
+006CA0E8
+current count 3
+get first 100
+get last a
+ta da
+Press enter to exit.
